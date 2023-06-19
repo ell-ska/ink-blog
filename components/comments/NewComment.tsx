@@ -1,15 +1,16 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { Send } from 'lucide-react'
 import { addComment } from '@/api-routes/comments'
 
-const NewComment = ({ post_id, author_id } : { post_id: string, author_id: string }) => {
+const NewComment = ({ post_id, current_user_id } : { post_id: string, current_user_id: string }) => {
 
     const router = useRouter()
     const [comment, setComment] = useState('')
 
     const handleAddComment = async () => {
-        const { error, status } = await addComment({ post_id, author_id, comment })
+        const { error, status } = await addComment({ post_id, author_id: current_user_id, comment })
 
         if (error) {
             return console.log({ error, status })
@@ -20,19 +21,24 @@ const NewComment = ({ post_id, author_id } : { post_id: string, author_id: strin
     }
 
     return (
-        <div className="flex flex-col">
-            <h3 className="font-bold text-2xl leading-none mb-6">comment</h3>
-            <textarea
-                className="input min-h-[12.5rem] text-xl leading-8 resize-none mb-8 placeholder:text-dark-500"
-                placeholder="be nice..."
-                onChange={(e) => setComment(e.target.value)}
-                value={comment}
-            />
-            <button
-                className="button-big"
-                onClick={handleAddComment}
-            >submit</button>
-        </div>
+        <form
+            className="flex flex-col"
+            onSubmit={handleAddComment}
+        >
+            <label htmlFor='comment' className="font-bold text-2xl leading-none mb-6">comment</label>
+            <div className='input flex justify-between'>
+                <input
+                    id='comment'
+                    className="outline-none w-full"
+                    placeholder="be nice..."
+                    onChange={(e) => setComment(e.target.value)}
+                    value={comment}
+                />
+                <button className="">
+                    <Send />
+                </button>
+            </div>
+        </form>
     )
 }
 

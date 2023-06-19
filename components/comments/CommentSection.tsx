@@ -4,9 +4,15 @@ import NewComment from './NewComment'
 import type { Comment as CommentType } from '@/lib/type-collection'
 import type { Session } from '@supabase/supabase-js'
 
+type CommentSectionType = {
+    post_id : string,
+    post_author_id: string,
+    session: Session | null
+}
+
 export const revalidate = 30
 
-const CommentSection = async ({ id: post_id, postAuthorId, session } : { id : string, postAuthorId: string , session: Session | null }) => {
+const CommentSection = async ({ post_id, post_author_id, session } : CommentSectionType) => {
 
     let comments: CommentType[] | null = null
 
@@ -17,18 +23,18 @@ const CommentSection = async ({ id: post_id, postAuthorId, session } : { id : st
     }
 
     return (
-        <section>
+        <section className='flex flex-col gap-12'>
+            {session && <NewComment post_id={post_id} current_user_id={session.user.id} />}
             {comments && comments.length > 0 && (
-                <div className='flex flex-col gap-8 mb-20'>
+                <div className='flex flex-col gap-8'>
                     {comments.map(comment => <Comment
                         key={comment.id}
                         {...comment}
                         session={session}
-                        postAuthorId={postAuthorId}
+                        post_author_id={post_author_id}
                     />)}
                 </div>
             )}
-            {session && <NewComment post_id={post_id} author_id={session.user.id} />}
         </section>
     )
 }

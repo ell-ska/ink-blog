@@ -111,6 +111,43 @@ export interface Database {
           }
         ]
       }
+      replies: {
+        Row: {
+          author_id: string
+          comment: string
+          comment_id: string
+          created_at: string
+          id: string
+        }
+        Insert: {
+          author_id: string
+          comment: string
+          comment_id: string
+          created_at?: string
+          id?: string
+        }
+        Update: {
+          author_id?: string
+          comment?: string
+          comment_id?: string
+          created_at?: string
+          id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "replies_author_id_fkey"
+            columns: ["author_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "replies_comment_id_fkey"
+            columns: ["comment_id"]
+            referencedRelation: "comments"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       users: {
         Row: {
           email: string

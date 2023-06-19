@@ -49,7 +49,7 @@ const ReadPost = async ({ params } : { params: { slug: string } }) => {
                 <div>{date}</div>
             </div>
             <BlogPost {...post}/>
-            <CommentSection id={post.id} postAuthorId={post.user_id} session={session}/>
+            <CommentSection post_id={post.id} post_author_id={post.user_id} session={session}/>
         </div>
     )
 }

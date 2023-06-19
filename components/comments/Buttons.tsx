@@ -2,21 +2,21 @@
 import { useRouter } from 'next/navigation'
 import { deleteComment } from '@/api-routes/comments'
 
-const DeleteButton = ({ id } : { id: string }) => {
+const DeleteButton = ({ id, type } : { id: string, type: string }) => {
 
     const router = useRouter()
 
     const handleDelete = async () => {
-        await deleteComment(id)
+        await deleteComment({ id, type })
         router.refresh()
     }
 
     return (
         <button
-            className="text-xs underline self-end"
+            className="text-xs underline"
             onClick={handleDelete}
         >delete</button>
     )
 }
 
-export default DeleteButton
+export { DeleteButton }
