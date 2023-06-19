@@ -7,6 +7,7 @@ import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 
 const LoginForm = ({ session } : { session: Session | null }) => {
+    console.log(session)
 
     // [] error handling
     // [] message for reset password

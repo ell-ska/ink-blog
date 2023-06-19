@@ -5,23 +5,26 @@ import StarterKit from '@tiptap/starter-kit'
 import Placeholder from '@tiptap/extension-placeholder'
 import Underline from '@tiptap/extension-underline'
 import Link from '@tiptap/extension-link'
+import { Link2, ChevronsLeftRight } from 'lucide-react'
 import LinkEditor from './LinkEditor'
-import { Link2 as LinkIcon, ChevronsLeftRight } from 'lucide-react'
+// import Dropdown from './Dropdown'
+  
 
-const Editor = () => {
+const ContentEditor = ({ body, handleBodyChange } : { body: string, handleBodyChange: (content: string) => void }) => {
 
 	const editor = useEditor({
 		extensions: [
 		StarterKit,
 		Underline,
-		Link.configure({
-			openOnClick: false
-		}),
+		Link,
 		Placeholder.configure({
 			placeholder: 'start writing...'
 		})
 		],
-		content: '',
+		content: body,
+		onUpdate: ({ editor }) => {
+			handleBodyChange(editor.getHTML())
+		}
 	})
 
 	const [linkEditorOpen, setLinkEditorOpen] = useState(false)
@@ -55,7 +58,7 @@ const Editor = () => {
 			{editor && <BubbleMenu
 				editor={editor}
 				pluginKey={'main'}
-				className='bg-light flex gap-6 border-1 py-4 px-6'
+				className='bg-light flex gap-6 border-1 border-dark-900 py-4 px-6'
 			>
 				{linkEditorOpen && !editor.isFocused ? (
 					<LinkEditor
@@ -66,6 +69,7 @@ const Editor = () => {
 					/>
 				) : (
 				<>
+					{/* <Dropdown /> */}
 					<button
 						onClick={() => editor.chain().focus().toggleBold().run()}
 						className={editor.isActive('bold') ? 'text-lg font-bold text-accent' : 'text-lg font-bold'}
@@ -89,13 +93,13 @@ const Editor = () => {
 					<button
 						onClick={toggleLinkEditor}
 						className={editor.isActive('link') ? 'text-lg underline text-accent' : 'text-lg underline'}
-					><LinkIcon /></button>
+					><Link2 /></button>
 				</>
 				)}
 			</BubbleMenu>}
-			<EditorContent editor={editor} />
+			<EditorContent editor={editor} className='post'/>
 		</>
 	)
 }
 
-export default Editor
+export default ContentEditor

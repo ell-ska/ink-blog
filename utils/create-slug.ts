@@ -1,5 +1,5 @@
 const createSlug = (title : string) => {
-    return title.split(' ').join('-').toLowerCase()
+    return encodeURI(title.split(' ').join('-').toLowerCase())
 }
   
 export default createSlug

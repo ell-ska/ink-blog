@@ -12,7 +12,7 @@ const LinkEditor = ({ link, onLinkChange, saveLink, deleteLink } : linkEditorTyp
                 autoFocus
                 value={link}
                 placeholder="paste link"
-                className="border-1 outline-none py-2 px-4"
+                className="border-1 border-dark-900 outline-none py-2 px-4"
                 type="url"
                 onChange={e => onLinkChange(e)}    
             />

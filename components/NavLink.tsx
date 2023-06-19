@@ -21,7 +21,7 @@ const NavLink = ({ path, name, image, styles }: NavLinkProps) => {
                 <Image src={image} alt='profile picture' height={32}></Image>
             </Link>
         )
-    } 
+    }
     
     if (path === currentPath && path !== '/login') {
         return (

@@ -27,12 +27,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${permanentMarker.variable} font-sans leading-none min-h-screen text-dark-900`}>
+      <body className={`${inter.variable} ${permanentMarker.variable} font-sans leading-none min-h-screen text-dark-900 flex flex-col`}>
         <Header />
-        <main className='flex flex-col items-center min-h-screen'>
+        <main className='relative flex flex-col items-center flex-grow'>
           {children}
         </main>
         <Footer />
+        <div id='search-bar'></div>
       </body>
     </html>
   )

@@ -4,19 +4,32 @@
 
 @layer components {
     .button-small {
-        @apply py-2 px-4 bg-accent border-1 rounded-full
+        @apply py-2 px-4 bg-accent border-1 border-dark-900 rounded-full
     }
 
     .button-big {
-        @apply py-4 px-8 bg-accent border-1 font-bold
+        @apply py-4 px-8 bg-accent border-1 border-dark-900 font-bold
     }
 
     .input {
-        @apply w-full border-1 py-4 px-6 outline-none
+        @apply w-full border-1 border-dark-900 py-4 px-6 outline-none
     }
 }
 
+.post code {
+    background-color: #A7AAAF80;
+    padding: 2px 4px;
+}
+
+.post a {
+    color: #FEC8E8;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .ProseMirror {
+    font-size: 1rem;
+    line-height: 1.5;
     padding: 1rem 1.5rem;
     border: 1px solid #24272C;
 }

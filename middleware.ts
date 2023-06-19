@@ -16,7 +16,6 @@ export const middleware = async (req: NextRequest) => {
   redirectUrl.pathname = '/login'
   redirectUrl.searchParams.set(`redirectedFrom`, req.nextUrl.pathname)
   return NextResponse.redirect(redirectUrl)
-
 }
 
 export const config = {

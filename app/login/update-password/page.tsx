@@ -30,7 +30,7 @@ const UpdatePassword = () => {
                     onChange={e => setNewPassword(e.target.value)}
                     value={newPassword}
                     placeholder='your new password'
-                    className='w-full border-1 py-4 px-6 outline-none'
+                    className='input'
                     style={{boxShadow: '0 0 0 30px white inset'}}
                 />
             </label>

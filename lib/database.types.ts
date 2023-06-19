@@ -36,69 +36,102 @@ export interface Database {
     Tables: {
       comments: {
         Row: {
-          author: string | null
+          author_id: string
           comment: string | null
-          created_at: string | null
+          created_at: string
           id: string
           post_id: string | null
         }
         Insert: {
-          author?: string | null
+          author_id: string
           comment?: string | null
-          created_at?: string | null
+          created_at?: string
           id?: string
           post_id?: string | null
         }
         Update: {
-          author?: string | null
+          author_id?: string
           comment?: string | null
-          created_at?: string | null
+          created_at?: string
           id?: string
           post_id?: string | null
         }
+        Relationships: [
+          {
+            foreignKeyName: "comments_author_id_fkey"
+            columns: ["author_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "comments_post_id_fkey"
+            columns: ["post_id"]
+            referencedRelation: "posts"
+            referencedColumns: ["id"]
+          }
+        ]
       }
       posts: {
         Row: {
           body: string | null
           cover_image: string | null
-          created_at: string | null
+          created_at: string
           id: string
+          published: boolean
           slug: string | null
           title: string
-          user_id: string | null
+          user_id: string
         }
         Insert: {
           body?: string | null
           cover_image?: string | null
-          created_at?: string | null
+          created_at?: string
           id?: string
+          published?: boolean
           slug?: string | null
           title: string
-          user_id?: string | null
+          user_id: string
         }
         Update: {
           body?: string | null
           cover_image?: string | null
-          created_at?: string | null
+          created_at?: string
           id?: string
+          published?: boolean
           slug?: string | null
           title?: string
-          user_id?: string | null
+          user_id?: string
         }
+        Relationships: [
+          {
+            foreignKeyName: "posts_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
       users: {
         Row: {
-          email: string | null
+          email: string
           id: string
         }
         Insert: {
-          email?: string | null
-          id?: string
+          email: string
+          id: string
         }
         Update: {
-          email?: string | null
+          email?: string
           id?: string
         }
+        Relationships: [
+          {
+            foreignKeyName: "users_id_fkey"
+            columns: ["id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {
@@ -150,6 +183,14 @@ export interface Database {
           public?: boolean | null
           updated_at?: string | null
         }
+        Relationships: [
+          {
+            foreignKeyName: "buckets_owner_fkey"
+            columns: ["owner"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
       migrations: {
         Row: {
@@ -170,6 +211,7 @@ export interface Database {
           id?: number
           name?: string
         }
+        Relationships: []
       }
       objects: {
         Row: {
@@ -208,6 +250,20 @@ export interface Database {
           updated_at?: string | null
           version?: string | null
         }
+        Relationships: [
+          {
+            foreignKeyName: "objects_bucketId_fkey"
+            columns: ["bucket_id"]
+            referencedRelation: "buckets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "objects_owner_fkey"
+            columns: ["owner"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {

@@ -1,31 +1,56 @@
 import Image from 'next/image'
+import Link from 'next/link'
+import { cookies } from 'next/headers'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import format from 'date-fns/format'
 import { getPost } from '@/api-routes/posts'
+import { getUser } from '@/api-routes/user'
 import BlogPost from '@/components/BlogPost'
+import CommentSection from '@/components/comments/CommentSection'
+import { DeleteButton, EditButton } from './Buttons'
 import profilePic from '@/public/profile-placeholder.svg'
-import type { Post } from '@/lib/type-collection'
+import type { Database } from '@/lib/database.types'
+import type { Post, User } from '@/lib/type-collection'
 
 const ReadPost = async ({ params } : { params: { slug: string } }) => {
 
+    const supabase = createServerComponentClient<Database>({ cookies })
+    const { data: { session } } = await supabase.auth.getSession()
+
     const { slug } = params
     let post: Post | null = null
+    let author: User | null = null
 
     try {
       post = await getPost(slug)
+      author = post && await getUser(post.user_id)
     } catch (error) {
       console.log(error)
     }
 
+    const date = post && format(new Date(post.created_at), 'MMMM d, yyyy')
+
+    if (!post) return <div>no post found</div>
+
     return (
-        <>
-            <div className='flex justify-between items-center max-w-xl w-3/4 mb-8 mt-20'>
+        <div className='my-20 max-w-xl w-3/4'>
+            {post.user_id === session?.user.id && (
+                <div className='flex gap-2 justify-end mb-4'>
+                    {/* <Link href={`/write/${slug}/edit`} className='button-small'>edit</Link> */}
+                    <EditButton slug={slug}></EditButton>
+                    <DeleteButton id={post.id}></DeleteButton>
+                </div>
+            )}
+            <div className='flex justify-between items-center mb-8'>
                 <div className='flex items-center gap-6'>
                     <Image src={profilePic} alt=''></Image>
-                    <span>ellska</span>
+                    <span>{author?.email}</span>
                 </div>
-                <div>June 5, 2023</div>
+                <div>{date}</div>
             </div>
-            {post && <BlogPost {...post}/>}
-        </>
+            <BlogPost {...post}/>
+            <CommentSection id={post.id} postAuthorId={post.user_id} session={session}/>
+        </div>
     )
 }
 

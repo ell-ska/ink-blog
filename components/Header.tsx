@@ -3,6 +3,7 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import NavLink from './NavLink'
 import placeholder from '@/public/profile-placeholder.svg'
 import type { Database } from '@/lib/database.types'
+import SearchBar from './SearchBar'
 
 const menuItems = [
     {
@@ -16,10 +17,6 @@ const menuItems = [
     {
         path: '/write',
         name: 'write'
-    },
-    {
-        path: '/search',
-        name: 'search'
     }
 ]
 
@@ -33,6 +30,7 @@ const Header = async () => {
             <span className={`font-marker text-3xl`}>ink</span>
             <nav className='flex gap-6 items-center w-full'>
                 {menuItems.map(item => <NavLink key={item.name} {...item}/>)}
+                <SearchBar />
             </nav>
             {session ? (
                 <NavLink path='/profile' image={placeholder}></NavLink>
