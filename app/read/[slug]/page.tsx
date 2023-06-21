@@ -18,7 +18,7 @@ const ReadPost = async ({ params } : { params: { slug: string } }) => {
 
     const { slug } = params
     let post: Post | null = null
-    let author: User | null = null
+    let author: User | null | undefined = null
 
     try {
       post = await getPost(slug)
