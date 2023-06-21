@@ -1,10 +1,11 @@
 import supabase from '@/lib/supabase-client'
 import { uploadImage } from '@/utils/upload-image'
 
-const getPosts = async () => {
+const getPublishedPosts = async () => {
     const { data, error, status } = await supabase
         .from('posts')
         .select()
+        .eq('published', true)
 
     return data
 }
@@ -78,4 +79,4 @@ const deletePost = async (id: string) => {
     return { error, status }
 }
 
-export { getPosts, getUserPosts, getPost, addPost, deletePost, editPost }
+export { getPublishedPosts, getUserPosts, getPost, addPost, deletePost, editPost }
