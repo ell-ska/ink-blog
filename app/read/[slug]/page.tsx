@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { cookies } from 'next/headers'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import format from 'date-fns/format'

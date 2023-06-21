@@ -33,7 +33,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <div id='search-bar'></div>
+        <div id='module'></div>
       </body>
     </html>
   )

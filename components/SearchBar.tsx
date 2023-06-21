@@ -81,10 +81,8 @@ const SearchBar = () => {
                             </div>
                     </div>
                 </FocusTrap>,
-                document.getElementById('search-bar') as Element
-            )
-
-            }
+                document.getElementById('module') as Element
+            )}
         </>
     )
 }

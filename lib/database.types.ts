@@ -152,14 +152,20 @@ export interface Database {
         Row: {
           email: string
           id: string
+          profile_picture: string | null
+          username: string
         }
         Insert: {
           email: string
           id: string
+          profile_picture?: string | null
+          username: string
         }
         Update: {
           email?: string
           id?: string
+          profile_picture?: string | null
+          username?: string
         }
         Relationships: [
           {

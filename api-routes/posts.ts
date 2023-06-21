@@ -9,6 +9,17 @@ const getPosts = async () => {
     return data
 }
 
+const getUserPosts = async (user_id: string | undefined) => {
+    if (!user_id) return
+
+    const { data, error, status } = await supabase
+        .from('posts')
+        .select()
+        .eq('user_id', user_id)
+    
+    return data
+}
+
 const getPost = async (slug : string) => {
     const { data, error, status } = await supabase
         .from('posts')
@@ -39,8 +50,8 @@ const addPost = async (
 }
 
 const editPost = async (
-    { id, title, slug, body, image } : 
-    { id: string, title: string, slug: string, body: string, image: File | undefined }
+    { id, title, slug, body, image, published } : 
+    { id: string, title?: string, slug?: string, body?: string, image?: File | undefined, published?: boolean }
 ) => {
 
     let cover_image
@@ -52,7 +63,7 @@ const editPost = async (
 
     const { error, status } = await supabase
         .from('posts')
-        .update({ title, slug, body, cover_image })
+        .update({ title, slug, body, cover_image, published })
         .eq('id', id)
 
     return { error, status }
@@ -67,4 +78,4 @@ const deletePost = async (id: string) => {
     return { error, status }
 }
 
-export { getPosts, getPost, addPost, deletePost, editPost }
+export { getPosts, getUserPosts, getPost, addPost, deletePost, editPost }

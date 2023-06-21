@@ -39,51 +39,54 @@ const ImageEditor = ({ image, handleImageChange, onReset } : ImageEditorProps) =
     }
 
     return (
-        <div>
-            <label className='flex flex-col gap-4'>
-                cover image
-                {previewUrl ? (
-                    <div className='group relative'>
-                        <Image
-                            className='border-1 border-dark-900'
-                            src={previewUrl}
-                            alt='preview'
-                            width={600}
-                            height={600}
-                        />
-                        <div className='opacity-0 group-hover:opacity-100 flex absolute inset-0 justify-center items-center gap-2 bg-dark-900 bg-opacity-25 transition-opacity'>
-                            <button
-                                className='button-small'
-                                onClick={() => {
-                                    if (hiddenInput.current) hiddenInput.current.click()
-                                }}
-                            >edit</button>
-                            <button
-                                className='button-small bg-light'
-                                onClick={handleResetImage}
-                            >delete</button>
-                        </div>
+        <div className='group relative border-1 border-dark-900 aspect-square'>
+            {previewUrl ? (
+                <>
+                    <Image
+                        className='object-cover aspect-square'
+                        src={previewUrl}
+                        alt='preview'
+                        width={600}
+                        height={600}
+                    />
+                    <div className='opacity-0 hover:opacity-100 flex absolute inset-0 justify-center items-center gap-2 bg-dark-900 bg-opacity-25 transition-opacity'>
+                        <button
+                            className='button-small'
+                            onClick={e => {
+                                e.stopPropagation()
+                                e.preventDefault()
+                                hiddenInput.current?.click()
+                            }}
+                        >edit</button>
+                        <button
+                            className='button-small bg-light'
+                            onClick={e => {
+                                e.stopPropagation()
+                                e.preventDefault()
+                                handleResetImage()
+                            }}
+                        >delete</button>
                     </div>
-                ) : (
-                    <label htmlFor="image-upload" className='input flex justify-center items-center h-56 cursor-pointer'>
-                        <button className='button-small pointer-events-none'>upload</button>
-                        <input
-                            id="image-upload"
-                            className='hidden'
-                            type='file'
-                            accept="image/*"
-                            onChange={(e) => handleSelectImage(e)}
-                        />
-                    </label>
-                )}
-                <input
-                    ref={hiddenInput}
-                    className='hidden'
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => handleSelectImage(e)}
-                />
-            </label>
+                </>
+            ) : (
+                <label htmlFor="image-upload" className='flex justify-center aspect-square items-center cursor-pointer'>
+                    <button className='button-small pointer-events-none'>upload</button>
+                    <input
+                        id="image-upload"
+                        className='hidden'
+                        type='file'
+                        accept="image/*"
+                        onChange={(e) => handleSelectImage(e)}
+                    />
+                </label>
+            )}
+            <input
+                ref={hiddenInput}
+                className='hidden'
+                type="file"
+                accept="image/*"
+                onChange={(e) => handleSelectImage(e)}
+            />
         </div>
     )
 }

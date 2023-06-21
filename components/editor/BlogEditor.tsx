@@ -67,9 +67,10 @@ const BlogEditor = ({ postId, defaultTitle, defaultBody, defaultImage, buttons }
 
     return (
         <section className='flex flex-col gap-8 my-20 max-w-xl w-3/4'>
-            <label className='flex flex-col gap-4'>
-                title
+            <label htmlFor='title' className='flex flex-col gap-4'>
+                <span>title</span>
                 <input
+                    id='title'
                     className='input'
                     type="text"
                     value={title}
@@ -77,11 +78,14 @@ const BlogEditor = ({ postId, defaultTitle, defaultBody, defaultImage, buttons }
                     required
                 />
             </label>
-            <ImageEditor
-                image={image}
-                handleImageChange={handleImageChange}
-                onReset={() => setImage(undefined)}
-            />
+            <label className='flex flex-col gap-4'>
+                <span>cover image</span>
+                <ImageEditor
+                    image={image}
+                    handleImageChange={handleImageChange}
+                    onReset={() => setImage(undefined)}
+                />
+            </label>
             <ContentEditor
                 body={body}
                 handleBodyChange={handleBodyChange}
