@@ -21,6 +21,11 @@ const ContentEditor = ({ body, handleBodyChange } : { body: string, handleBodyCh
 			placeholder: 'start writing...'
 		})
 		],
+		editorProps: {
+			attributes: {
+				class: 'prose focus:outline-none'
+			}
+		},
 		content: body,
 		onUpdate: ({ editor }) => {
 			handleBodyChange(editor.getHTML())
@@ -97,7 +102,7 @@ const ContentEditor = ({ body, handleBodyChange } : { body: string, handleBodyCh
 				</>
 				)}
 			</BubbleMenu>}
-			<EditorContent editor={editor} className='post'/>
+			<EditorContent editor={editor} />
 		</>
 	)
 }

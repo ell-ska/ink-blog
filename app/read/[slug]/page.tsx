@@ -35,7 +35,6 @@ const ReadPost = async ({ params } : { params: { slug: string } }) => {
         <div className='my-20 max-w-xl w-3/4'>
             {post.user_id === session?.user.id && (
                 <div className='flex gap-2 justify-end mb-4'>
-                    {/* <Link href={`/write/${slug}/edit`} className='button-small'>edit</Link> */}
                     <EditButton slug={slug}></EditButton>
                     <DeleteButton id={post.id}></DeleteButton>
                 </div>

@@ -16,7 +16,7 @@ const getUser = async (id : string | undefined) => {
 
 const editUser = async ({ id, username, image } : { id: string, username?: string, image?: File }) => {
 
-    let profile_picture
+    let profile_picture = null
 
     if (image) {
         const { publicUrl, error } = await uploadImage(image)

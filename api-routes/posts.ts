@@ -6,6 +6,7 @@ const getPublishedPosts = async () => {
         .from('posts')
         .select()
         .eq('published', true)
+        .order('created_at', { ascending: false })
 
     return data
 }
@@ -17,6 +18,15 @@ const getUserPosts = async (user_id: string | undefined) => {
         .from('posts')
         .select()
         .eq('user_id', user_id)
+    
+    return data
+}
+
+const getFeaturedPosts = async () => {
+    const { data, error, status } = await supabase
+        .from('posts')
+        .select()
+        .eq('featured', true)
     
     return data
 }
@@ -79,4 +89,4 @@ const deletePost = async (id: string) => {
     return { error, status }
 }
 
-export { getPublishedPosts, getUserPosts, getPost, addPost, deletePost, editPost }
+export { getPublishedPosts, getUserPosts, getFeaturedPosts, getPost, addPost, deletePost, editPost }

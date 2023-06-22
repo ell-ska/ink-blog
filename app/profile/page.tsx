@@ -17,7 +17,7 @@ const Profile = async () => {
     return (
         <>
             {user && <ProfileDetails {...user}/>}
-            <section className='flex flex-col gap-8 px-8 py-20'>
+            <section className='flex flex-col w-full gap-8 px-8 py-20'>
                 <h2 className='text-2xl font-bold leading-none'>my posts</h2>
                 {posts && <Gallery posts={posts} isProfile={true} />}
             </section>

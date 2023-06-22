@@ -76,6 +76,7 @@ export interface Database {
           body: string | null
           cover_image: string | null
           created_at: string
+          featured: boolean
           id: string
           published: boolean
           slug: string | null
@@ -86,6 +87,7 @@ export interface Database {
           body?: string | null
           cover_image?: string | null
           created_at?: string
+          featured?: boolean
           id?: string
           published?: boolean
           slug?: string | null
@@ -96,6 +98,7 @@ export interface Database {
           body?: string | null
           cover_image?: string | null
           created_at?: string
+          featured?: boolean
           id?: string
           published?: boolean
           slug?: string | null

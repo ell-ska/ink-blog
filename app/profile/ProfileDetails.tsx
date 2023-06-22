@@ -35,13 +35,6 @@ const ProfileDetails = ({ username: currentUsername, profile_picture, id } : Use
         router.refresh()
     }
 
-    // const handleChangeImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     if (!event.target.files?.[0]) return console.log('no file chosen')
-
-    //     await editUser({ id, image: event.target.files?.[0] })
-    //     router.refresh()
-    // }
-
     return (
         <section className='flex gap-8 items-center max-w-2xl w-3/4 mt-20'>
             <div className='overflow-hidden rounded-full aspect-square'>

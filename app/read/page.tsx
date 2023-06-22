@@ -16,7 +16,7 @@ const Read = async () => {
 
 	return (
 		<section className='px-8 py-20 w-full'>
-			{posts && <Gallery posts={posts} isProfile={false}/>}
+			{posts && <Gallery posts={posts}/>}
 		</section>
 	)
 }

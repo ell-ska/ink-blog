@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     colors: {
       dark: {
-        900: '#24272C',
-        700: '#6F7176',
-        500: '#A7AAAF'
+        900: '#111827',
+        700: '#4B5563',
+        500: '#9CA3AF'
       },
       light: '#FFF',
       accent: '#FEC8E8'
@@ -25,5 +25,7 @@ module.exports = {
       }
     }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
 }

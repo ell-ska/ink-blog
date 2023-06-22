@@ -46,6 +46,7 @@ const BlogEditor = ({ postId, defaultTitle, defaultBody, defaultImage, buttons }
             return console.log({ error, status })
         }
 
+        router.prefetch('/read')
         router.push(`/read/${slug}`)
     }
 
@@ -62,6 +63,7 @@ const BlogEditor = ({ postId, defaultTitle, defaultBody, defaultImage, buttons }
         }
 
         router.prefetch(`/read/${slug}`)
+        router.prefetch('/read')
         router.push(`/read/${slug}`)
     }
 

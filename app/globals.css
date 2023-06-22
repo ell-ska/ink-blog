@@ -16,26 +16,9 @@
     }
 }
 
-.post code {
-    background-color: #A7AAAF80;
-    padding: 2px 4px;
-}
-
-.post a {
-    color: #FEC8E8;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
 .ProseMirror {
-    font-size: 1rem;
-    line-height: 1.5;
     padding: 1rem 1.5rem;
     border: 1px solid #24272C;
-}
-
-.ProseMirror-focused {
-    outline: none;
 }
 
 .ProseMirror p.is-editor-empty:first-child::before {

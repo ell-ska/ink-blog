@@ -11,7 +11,7 @@ import type { Post } from '@/lib/type-collection'
 
 const SearchResults = ({ results } : { results: Post[] }) => {
     return (
-        <div className='grid grid-cols-4 gap-x-4 gap-y-16 p-8'>
+        <div className='grid grid-cols-3 gap-x-4 gap-y-16 p-8'>
             {results.map(({ id, cover_image, slug, title }) => (
                 <Link key={id} href={`/read/${slug}`}>
                     {cover_image ? <Image
@@ -21,7 +21,7 @@ const SearchResults = ({ results } : { results: Post[] }) => {
                         width={664}
                         height={664}
                     ></Image> : <div className='aspect-square w-full border-1 border-dark-900 bg-accent'></div>}
-                    <h2 className='text-xl mt-2'>{title}</h2>
+                    <h2 className='text-xl mt-2 line-clamp-2'>{title}</h2>
                 </Link>
             ))}
         </div>
@@ -58,10 +58,13 @@ const SearchBar = () => {
                 <FocusTrap>
                     <div
                         className='fixed inset-0 flex justify-center items-center bg-dark-900 bg-opacity-25'
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => {
+                            setIsOpen(false)
+                            setSearch('')
+                        }}
                     >
                             <div
-                                className='flex flex-col items-center max-w-2xl w-2/3 h-2/4 bg-light border-1 border-dark-900'
+                                className='flex flex-col items-center max-w-2xl w-2/3 min-h-[50%] bg-light border-1 border-dark-900'
                                 onClick={e => e.stopPropagation()}
                                 onKeyDown={e => e.key === 'Escape' ? setIsOpen(false) : null}
                             >

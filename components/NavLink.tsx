@@ -18,7 +18,7 @@ const NavLink = ({ path, name, image, styles }: NavLinkProps) => {
     if (image) {
         return (
             <Link href={path}>
-                <Image src={image} alt='profile picture' height={32}></Image>
+                <Image src={image} alt='profile picture' height={32} width={32} className='rounded-full object-cover aspect-square'></Image>
             </Link>
         )
     }
