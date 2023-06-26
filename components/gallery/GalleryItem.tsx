@@ -27,7 +27,7 @@ const GalleryItem = async ({ title, cover_image, slug, user_id, published, isPro
             )}
             <div className='flex-1'>
                 {!isProfile && <h3 className='text-xs font-bold'>{user?.username}</h3>}
-                <h2 className={`text-xl ${isProfile ? 'mt-8' : 'mt-1'}`}>{title}</h2>
+                <h2 className={`text-xl line-clamp-4 ${isProfile ? 'mt-8' : 'mt-1'}`}>{title}</h2>
             </div>
         </Link>
     )

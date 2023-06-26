@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${permanentMarker.variable} font-sans leading-none min-h-screen text-dark-900 flex flex-col`}>
         <Header />
-        <main className='relative flex flex-col items-center flex-grow'>
+        <main className='relative flex flex-col items-center flex-grow mt-12'>
           {children}
         </main>
         <Footer />

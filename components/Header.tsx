@@ -1,25 +1,9 @@
 import { cookies } from 'next/headers'
+import Link from 'next/link'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { getUser } from '@/api-routes/user'
-import NavLink from './NavLink'
-import SearchBar from './SearchBar'
-import placeholder from '@/public/profile-placeholder.svg'
 import type { Database } from '@/lib/database.types'
-
-const menuItems = [
-    {
-        path: '/',
-        name: 'home'
-    },
-    {
-        path: '/read',
-        name: 'read'
-    },
-    {
-        path: '/write',
-        name: 'write'
-    }
-]
+import Nav from './navigation/Nav'
 
 const Header = async () => {
 
@@ -28,17 +12,9 @@ const Header = async () => {
     const user = await getUser(session?.user.id)
 
     return (
-        <header className='flex items-center gap-12 px-8 py-2 border-b-1'>
-            <span className={`font-marker text-3xl`}>ink</span>
-            <nav className='flex gap-6 items-center w-full'>
-                {menuItems.map(item => <NavLink key={item.name} {...item}/>)}
-                <SearchBar />
-            </nav>
-            {session ? (
-                <NavLink path='/profile' image={user?.profile_picture || placeholder}></NavLink>
-            ) : (
-                <NavLink path='/login' name='login' styles='button-small'/>
-            )}
+        <header className='absolute z-50 w-full bg-light flex justify-between md:justify-normal items-center gap-12 px-8 h-12 border-b-1'>
+            <Link href='/' className='font-marker text-3xl'>ink</Link>
+            <Nav session={session} user={user} />
         </header>
     )
 }
