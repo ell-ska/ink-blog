@@ -24,3 +24,6 @@ This task is intended to enhance the understanding of full-stack web development
 - Integration with PostgreSQL database
 - CRUD functionality
 - User authentication
+
+## Link to assignment
+https://github.com/ahoogthomsen/my-blog
