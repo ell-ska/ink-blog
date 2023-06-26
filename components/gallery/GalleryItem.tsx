@@ -9,6 +9,7 @@ interface GalleryItemProps extends Post { isProfile?: boolean }
 const GalleryItem = async ({ title, cover_image, slug, user_id, published, isProfile, id } : GalleryItemProps ) => {
 
     const user = await getUser(user_id)
+    
     return (
         <Link href={`/read/${slug}`} className='flex gap-6 md:flex-col md:gap-4'>
             {cover_image ? (

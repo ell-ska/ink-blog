@@ -2,7 +2,7 @@ import supabase from '@/lib/supabase-client'
 import { uploadImage } from '@/utils/upload-image'
 
 const getPublishedPosts = async () => {
-    const { data, error, status } = await supabase
+    const { data } = await supabase
         .from('posts')
         .select()
         .eq('published', true)
@@ -14,7 +14,7 @@ const getPublishedPosts = async () => {
 const getUserPosts = async (user_id: string | undefined) => {
     if (!user_id) return
 
-    const { data, error, status } = await supabase
+    const { data } = await supabase
         .from('posts')
         .select()
         .eq('user_id', user_id)
@@ -23,7 +23,7 @@ const getUserPosts = async (user_id: string | undefined) => {
 }
 
 const getFeaturedPosts = async () => {
-    const { data, error, status } = await supabase
+    const { data } = await supabase
         .from('posts')
         .select()
         .eq('featured', true)
@@ -32,7 +32,7 @@ const getFeaturedPosts = async () => {
 }
 
 const getPost = async (slug : string) => {
-    const { data, error, status } = await supabase
+    const { data } = await supabase
         .from('posts')
         .select()
         .eq('slug', slug)

@@ -27,10 +27,7 @@ const DeleteButton = ({ id } : { id: string }) => {
 const EditButton = ({ slug } : { slug: string }) => {
     const router = useRouter()
 
-    return <button className='button-small' onClick={() => {
-        // router.prefetch(`/write/${slug}/edit`)
-        router.push(`/write/${slug}/edit`)
-    }}>edit</button>
+    return <button className='button-small' onClick={() => router.push(`/write/${slug}/edit`)}>edit</button>
 }
 
 export { DeleteButton, EditButton }

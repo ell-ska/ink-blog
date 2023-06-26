@@ -1,8 +1,5 @@
 import LoginForm from './LoginForm'
 
-const Login = async () => {
-  
-    return <LoginForm />
-}
+const Login = () => <LoginForm />
 
 export default Login

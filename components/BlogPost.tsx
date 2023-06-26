@@ -6,7 +6,7 @@ const BlogPost = ({ title, cover_image, body } : Post) => {
         <article className='prose prose-lg mb-20'>
             <h1 className='leading-tight'>{title}</h1>
             {cover_image && <Image
-                className='border-1 border-dark-900 mb-12' // min-h-[calc(100vh-4rem)]
+                className='border-1 border-dark-900 mb-12'
                 src={cover_image}
                 alt=''
                 width={600}

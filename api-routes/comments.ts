@@ -1,7 +1,7 @@
 import supabase from '@/lib/supabase-client'
 
 const getComments = async (post_id: string) => {
-    const { data, error, status } = await supabase
+    const { data } = await supabase
         .from('comments')
         .select()
         .eq('post_id', post_id)
@@ -10,7 +10,7 @@ const getComments = async (post_id: string) => {
 }
 
 const getReplies = async (comment_id: string) => {
-    const { data, error, status } = await supabase
+    const { data } = await supabase
         .from('replies')
         .select()
         .eq('comment_id', comment_id)

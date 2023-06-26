@@ -1,6 +1,7 @@
 import { getPost } from '@/api-routes/posts'
 import BlogEditor from '@/components/editor/BlogEditor'
 import type { Post } from '@/lib/type-collection'
+
 export const revalidate = 0
 
 const Edit = async ({ params } : { params: { slug: string } }) => {
@@ -17,10 +18,6 @@ const Edit = async ({ params } : { params: { slug: string } }) => {
     if (!post) return (
         <div>no post found</div>
     )
-
-    // const { data, error } = useSWR(slug ? `${postCacheKey}/${slug}` : null, () => getPost(slug))
-    // : { data: post = {} }
-    // get image File
 
     return (
         <BlogEditor

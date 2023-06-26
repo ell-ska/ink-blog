@@ -1,7 +1,5 @@
 import BlogEditor from '@/components/editor/BlogEditor'
 
-const Write = () => {
-    return <BlogEditor buttons={['save', 'publish']} />
-}
+const Write = () => <BlogEditor buttons={['save', 'publish']} />
 
 export default Write

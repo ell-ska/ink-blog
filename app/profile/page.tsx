@@ -1,10 +1,10 @@
 import { cookies } from 'next/headers'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { getUserPosts } from '@/api-routes/posts'
+import { getUser } from '@/api-routes/user'
 import Gallery from '@/components/gallery/Gallery'
 import ProfileDetails from './ProfileDetails'
 import type { Database } from '@/lib/database.types'
-import { getUser } from '@/api-routes/user'
 
 const Profile = async () => {
 

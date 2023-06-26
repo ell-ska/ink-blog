@@ -1,11 +1,10 @@
 'use client'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import FocusTrap from 'focus-trap-react'
-import { Edit } from 'lucide-react'
 import placeholder from 'public/profile-placeholder.svg'
 import type { User } from '@/lib/type-collection'
 import { editUser } from '@/api-routes/user'
@@ -28,9 +27,7 @@ const ProfileDetails = ({ username: currentUsername, profile_picture, id } : Use
 
     const handleSubmitChanges = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-
         await editUser({ id, image, username })
-
         setIsOpen(false)
         router.refresh()
     }

@@ -6,9 +6,7 @@ import Placeholder from '@tiptap/extension-placeholder'
 import Underline from '@tiptap/extension-underline'
 import Link from '@tiptap/extension-link'
 import { Link2, ChevronsLeftRight } from 'lucide-react'
-import LinkEditor from './LinkEditor'
-// import Dropdown from './Dropdown'
-  
+import LinkEditor from './LinkEditor'  
 
 const ContentEditor = ({ body, handleBodyChange } : { body: string, handleBodyChange: (content: string) => void }) => {
 
@@ -74,7 +72,6 @@ const ContentEditor = ({ body, handleBodyChange } : { body: string, handleBodyCh
 					/>
 				) : (
 				<>
-					{/* <Dropdown /> */}
 					<button
 						onClick={() => editor.chain().focus().toggleBold().run()}
 						className={editor.isActive('bold') ? 'text-lg font-bold text-accent' : 'text-lg font-bold'}

@@ -5,9 +5,6 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
 const UpdatePassword = () => {
 
-    // [] message for updated password
-    // [] error handling
-
     const supabase = createClientComponentClient()
     const router = useRouter()
 

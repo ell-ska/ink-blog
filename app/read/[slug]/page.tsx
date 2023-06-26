@@ -21,10 +21,10 @@ const ReadPost = async ({ params } : { params: { slug: string } }) => {
     let author: User | null | undefined = null
 
     try {
-      post = await getPost(slug)
-      author = post && await getUser(post.user_id)
+        post = await getPost(slug)
+        author = post && await getUser(post.user_id)
     } catch (error) {
-      console.log(error)
+        console.log(error)
     }
 
     const date = post && format(new Date(post.created_at), 'MMMM d, yyyy')
