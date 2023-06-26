@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blog Assignment
 
-## Getting Started
+This is my take on the final assignment in the course web servers and databases!
 
-First, run the development server:
+This task is intended to enhance the understanding of full-stack web development, focusing on aspects like database interaction, authentication, and CRUD (Create, Read, Update, Delete) operations. It tackles managing relational data, structuring and querying a PostgreSQL database, and handling user authentication.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Technologies used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Next.js**: A powerful JavaScript framework developed by Vercel.
+   https://nextjs.org/docs
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Supabase**: We'll use Supabase for our database (Postgres) and authentication needs.
+   https://supabase.com/docs/reference/javascript/installing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. **PostgreSQL**: An open-source relational database management system, known for its extensibility and SQL compliance.
 
-## Learn More
+4. **Typescript**: The strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
 
-To learn more about Next.js, take a look at the following resources:
+5. **Tiptap**: A library used to build the wysiwyg editor https://tiptap.dev/
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Full-stack application
+- Integration with PostgreSQL database
+- CRUD functionality
+- User authentication
