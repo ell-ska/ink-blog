@@ -49,7 +49,7 @@ const ImageEditor = ({ image, handleImageChange, onReset } : ImageEditorProps) =
                         width={600}
                         height={600}
                     />
-                    <div className='opacity-0 hover:opacity-100 flex absolute inset-0 justify-center items-center gap-2 bg-dark-900 bg-opacity-25 transition-opacity'>
+                    <div className='md:opacity-0 md:hover:opacity-100 flex absolute inset-0 justify-center items-center gap-2 bg-dark-900 bg-opacity-25 transition-opacity'>
                         <button
                             className='button-small'
                             onClick={e => {
