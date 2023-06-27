@@ -32,14 +32,14 @@ const ReadPost = async ({ params } : { params: { slug: string } }) => {
     if (!post) return <div>no post found</div>
 
     return (
-        <div className='my-20 max-w-xl w-3/4'>
+        <div className='my-12 md:my-20 max-w-xl w-full px-8 md:w-3/4'>
             {post.user_id === session?.user.id && (
                 <div className='flex gap-2 justify-end mb-4'>
                     <EditButton slug={slug}></EditButton>
                     <DeleteButton id={post.id}></DeleteButton>
                 </div>
             )}
-            <div className='flex justify-between items-center mb-8'>
+            <div className='flex flex-wrap gap-y-4 justify-between items-center mb-8'>
                 <div className='flex items-center gap-6'>
                     <Image src={profilePic} alt=''></Image>
                     <span>{author?.email}</span>

@@ -16,8 +16,8 @@ const Reply = async ({ comment, created_at, author_id: reply_author_id, id: repl
     const timestamp = createTimestamp(created_at)
 
     return (
-        <div className='flex flex-col mx-8'>
-            <div className='flex gap-2 items-center mb-4'>
+        <div className='flex flex-col ml-8'>
+            <div className='flex flex-wrap gap-2 items-center mb-4'>
                 <Image src={image} alt='profile picture' height={32}></Image>
                 <span>{author?.email}</span>
                 {post_author_id === reply_author_id && <span className='button-small text-xs leading-none py-1 px-2'>author</span>}

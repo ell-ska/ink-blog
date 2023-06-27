@@ -19,7 +19,7 @@ const Comment = async ({ author_id: comment_author, comment, created_at, id: com
 
     return (
         <div className='flex flex-col border-1 border-dark-900 p-8'>
-            <div className='flex gap-2 items-center mb-4'>
+            <div className='flex flex-wrap gap-2 items-center mb-4'>
                 <Image src={image} alt='profile picture' height={32}></Image>
                 <span>{user?.email}</span>
                 {post_author_id === comment_author && <span className='button-small text-xs leading-none py-1 px-2'>author</span>}

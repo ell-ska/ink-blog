@@ -68,7 +68,7 @@ const BlogEditor = ({ postId, defaultTitle, defaultBody, defaultImage, buttons }
     }
 
     return (
-        <section className='flex flex-col gap-8 my-20 max-w-xl w-3/4'>
+        <section className='flex flex-col gap-8 my-12 md:my-20 px-8 max-w-xl w-full md:w-3/4'>
             <label htmlFor='title' className='flex flex-col gap-4'>
                 <span>title</span>
                 <input

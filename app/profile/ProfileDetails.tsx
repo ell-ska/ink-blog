@@ -33,7 +33,7 @@ const ProfileDetails = ({ username: currentUsername, profile_picture, id } : Use
     }
 
     return (
-        <section className='flex gap-8 items-center max-w-2xl w-3/4 mt-20'>
+        <section className='flex flex-wrap gap-8 items-center max-w-2xl w-full md:w-3/4 px-8 mt-12 md:mt-20'>
             <div className='overflow-hidden rounded-full aspect-square'>
                 <Image src={profile_picture || placeholder} alt='profile picture' height={80} width={80}></Image>
             </div>

@@ -17,7 +17,7 @@ const NavLink = ({ path, name, image, styles }: NavLinkProps) => {
 
     if (image) {
         return (
-            <Link href={path} className='ml-auto'>
+            <Link href={path} className='md:ml-auto'>
                 <Image src={image} alt='profile picture' height={32} width={32} className='rounded-full object-cover aspect-square'></Image>
             </Link>
         )

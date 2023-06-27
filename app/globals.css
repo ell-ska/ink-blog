@@ -12,7 +12,7 @@
     }
 
     .input {
-        @apply w-full border-1 border-dark-900 py-4 px-6 outline-none
+        @apply w-full border-1 border-dark-900 py-4 px-6 outline-none rounded-none
     }
 }
 

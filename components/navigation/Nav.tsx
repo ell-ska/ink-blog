@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import NavLink from './NavLink'
 import SearchBar from '../SearchBar'
 import { Menu, X } from 'lucide-react'
@@ -25,10 +26,15 @@ const menuItems = [
 const Nav = ({ session, user } : { session: Session | null, user: User | null | undefined }) => {
 
     const [menuOpen, setMenuOpen] = useState(false)
+    const path = usePathname()
 
     useEffect(() => {
         document.body.style.overflow = menuOpen ? 'hidden' : 'auto'
     }, [menuOpen])
+
+    useEffect(() => {
+        setMenuOpen(false)
+    }, [path])
     
     return (
         <>
