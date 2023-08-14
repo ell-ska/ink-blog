@@ -14,7 +14,7 @@ const Home = async () => {
 	return (
 		<>
 			<FeaturedGallery posts={featured?.slice(0, 2)} styles='border-t-0' />
-			<section className='w-full p-8 my-8 md:my-12'>
+			<section className='w-full p-8'>
 				<div className='flex gap-2 mb-8'>
 					<Image src={dot} alt=''></Image>
 					<h2 className='font-bold'>just in</h2>

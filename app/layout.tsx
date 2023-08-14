@@ -18,6 +18,9 @@ const permanentMarker = Permanent_Marker({
 export const metadata = {
   title: 'ink',
   description: 'A blog focused on photography',
+  icons: {
+    icon: '/favicon.svg'
+  }
 }
 
 export default function RootLayout({
